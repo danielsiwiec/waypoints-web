@@ -17,7 +17,6 @@ function initMap() {
     };
 
     map.setCenter(pos);
-    var geocoder = new google.maps.Geocoder();
   })
 
   var input = document.getElementById('search');
