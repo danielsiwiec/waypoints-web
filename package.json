@@ -1,0 +1,15 @@
+{
+  "name": "waypoints-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Dan Siwiec <daniel.siwiec@gmail.com> (http://danielsiwiec.github.io)",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
