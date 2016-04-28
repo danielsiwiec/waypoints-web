@@ -4,7 +4,6 @@ let express = require('express'),
   app = express(),
   mongoose = require('mongoose'),
   bodyParser = require('body-parser'),
-  shortid = require('shortid'),
   Location
 
 app.set('port', (process.env.PORT || 5000))
@@ -62,8 +61,12 @@ function connectToMongo() {
       },
       _id: {
         type: String,
-        'default': shortid.generate
+        'default': randomId
       }
     })
   })
+}
+
+function randomId() {
+  return Math.floor(Math.random() * 10000);
 }
