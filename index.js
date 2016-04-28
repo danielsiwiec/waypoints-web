@@ -22,7 +22,7 @@ app.post('/locations', function (req, res) {
       console.log(`Error when saving ${record._id}: ${err}`)
     } else {
       console.log(`Record ${record._id} saved.`)
-      res.send(JSON.stringify({hash: record._id}))
+      res.json({hash: record._id})
     }
   })
 })
@@ -37,7 +37,7 @@ app.get('/locations/:hash', function (req, res) {
       console.log(`Error when retrieving ${hash}: ${err}`)
     } else {
       console.log(`${hash} found.`)
-      res.send(location)
+      res.json(location)
     }
   })
 })
