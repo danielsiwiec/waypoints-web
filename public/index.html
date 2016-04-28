@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Simple Map</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-    <style>
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      #map {
-        height: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <input id='search' type='text'></input>
-    <div id="map"></div>
-    <script src="app.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCq6QgNSWFXLbLjXCzbdktiA9maf1Cy6h4&callback=initMap&libraries=geometry,places" async defer></script>
-  </body>
+
+<head>
+  <title>Waypoints</title>
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="search" class="section">
+      <input class="glowing-border" type="text"></input>
+    </div>
+
+    <div id="map" class="section">
+      <div></div>
+      <input class="glowing-border" />
+      <button type="button">Send</button>
+    </div>
+
+    <div id="hash" class="section">
+      <span></span>
+    </div>
+
+  <script src="app.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCq6QgNSWFXLbLjXCzbdktiA9maf1Cy6h4&callback=init&libraries=geometry,places" async defer></script>
+</body>
+
 </html>

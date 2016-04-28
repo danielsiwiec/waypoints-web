@@ -1,0 +1,44 @@
+.section {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#map {
+  height: 50%;
+}
+#map div {
+  height: 100%;
+  width: 100%;
+}
+#map input {
+  margin-top: 30px;
+}
+.glowing-border {
+  border: 2px solid #dadada;
+  border-radius: 3px;
+}
+.glowing-border:focus {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed;
+}
+
+button {
+	background-color:#2dabf9;
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	color:#ffffff;
+	padding:9px;
+}
+
+button:hover {
+	background-color:#0688fa;
+}
+
+#hash span {
+  color: gray;
+  font-size: 200%;
+}
