@@ -13,7 +13,7 @@ function init() {
 
     $('#map input').val(place.name);
     showSection('map')
-    var map = new google.maps.Map($('#map div')[0])
+    var map = new google.maps.Map($('#mapcanvas')[0])
 
     var location = {
       name: place.name,
