@@ -21,7 +21,9 @@ app.post('/locations', function (req, res) {
       console.log(`Error when saving ${record._id}: ${err}`)
     } else {
       console.log(`Record ${record._id} saved.`)
-      res.json({hash: record._id})
+      res.json({
+        hash: record._id
+      })
     }
   })
 })
@@ -51,7 +53,7 @@ function connectToMongo() {
 
   let db = mongoose.connection
   db.on('error', console.error.bind(console, 'connection error:'))
-  db.once('open', function() {
+  db.once('open', function () {
     console.log('connected to db')
     Location = mongoose.model('locations', {
       name: String,
@@ -61,8 +63,12 @@ function connectToMongo() {
       },
       _id: {
         type: String,
-        'default': randomId
-      }
+        default: randomId
+      },
+      createdAt: {
+        type: Date,
+        default: Date.now
+      },
     })
   })
 }
