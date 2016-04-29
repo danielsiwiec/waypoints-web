@@ -74,5 +74,6 @@ function connectToMongo() {
 }
 
 function randomId() {
-  return Math.floor(Math.random() * 10000);
+  let random = Math.floor(Math.random() * 10000)
+  return String("0000" + random).slice(-4)
 }
