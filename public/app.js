@@ -11,7 +11,7 @@ function init() {
   autocomplete.addListener('place_changed', function () {
     var place = autocomplete.getPlace()
 
-    $('#map input').val(place.name);
+    $('#map span').text(place.name);
     showSection('map')
     var map = new google.maps.Map($('#mapcanvas')[0])
 
