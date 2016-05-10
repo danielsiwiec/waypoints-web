@@ -4,6 +4,8 @@ let express = require('express'),
   app = express(),
   mongoose = require('mongoose'),
   bodyParser = require('body-parser'),
+  ua = require('universal-analytics'),
+  googleAnalyticsId = 'UA-77110226-1',
   Location
 
 app.set('port', (process.env.PORT || 5000))
@@ -15,6 +17,7 @@ connectToMongo()
 
 app.post('/locations', function (req, res) {
   console.log(`Saving record ${JSON.stringify(req.body)}`)
+  ua(googleAnalyticsId).event('location', 'save').send()
   let record = new Location(req.body)
   record.save(function (err) {
     if (err) {
@@ -31,6 +34,7 @@ app.post('/locations', function (req, res) {
 app.get('/locations/:hash', function (req, res) {
   let hash = req.params.hash
   console.log(`Looking record up by ${hash}`)
+  ua(googleAnalyticsId).event('location', 'get').send()
   Location.findOne({
     '_id': req.params.hash
   }, function (err, location) {
