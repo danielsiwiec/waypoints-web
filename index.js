@@ -6,6 +6,7 @@ let express = require('express'),
   bodyParser = require('body-parser'),
   ua = require('universal-analytics'),
   googleAnalyticsId = 'UA-77110226-1',
+  demoHash = '0000',
   Location
 
 app.set('port', (process.env.PORT || 5000))
@@ -34,7 +35,9 @@ app.post('/locations', function (req, res) {
 app.get('/locations/:hash', function (req, res) {
   let hash = req.params.hash
   console.log(`Looking record up by ${hash}`)
-  ua(googleAnalyticsId).event('location', 'get').send()
+  if (hash !== demoHash) {
+    ua(googleAnalyticsId).event('location', 'get').send()
+  }
   Location.findOne({
     '_id': req.params.hash
   }, function (err, location) {
