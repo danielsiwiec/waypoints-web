@@ -1,34 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
-<head>
-  <title>Waypoints</title>
-  <meta name="viewport" content="initial-scale=1.0">
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-  <div id="search" class="section">
-    <input class="glowing-border" type="text"></input>
-  </div>
-
-  <div id="map" class="section">
-    <div id="mapcanvas"></div>
-    <div>
-      <span id="point-name"></span>
-      <button type="button">Send</button>
-    </div>
-  </div>
-
-  <div id="hash" class="section">
-    <span></span>
-  </div>
-
-  <script src="app.js"></script>
-  <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCq6QgNSWFXLbLjXCzbdktiA9maf1Cy6h4&callback=init&libraries=geometry,places" async defer></script>
-  <script src="analytics.js"></script>
-</body>
-
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello React</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="bundle.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCq6QgNSWFXLbLjXCzbdktiA9maf1Cy6h4&callback=window.init&libraries=geometry,places" async defer></script>
+  </body>
 </html>
