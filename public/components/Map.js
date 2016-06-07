@@ -2,6 +2,23 @@ import React from 'react'
 
 import SendButton from './SendButton'
 
+let mapStyles = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  height: '50%',
+  width: '50%',
+  textAlign: 'center'
+}
+
+let mapCanvasStyles = {
+  display: 'block',
+  width: '100%',
+  height: '100%',
+  marginBottom: '30px'
+}
+
 class Map extends React.Component {
 
   static propTypes() {
@@ -10,8 +27,8 @@ class Map extends React.Component {
 
 	render() {
     return(
-    <div className="map">
-      <div className="mapcanvas" ref="mapCanvas"></div>
+    <div style={mapStyles}>
+      <div style={mapCanvasStyles} ref="mapCanvas"></div>
       <div>
         <span>{this.props.name}</span>
         <SendButton></SendButton>

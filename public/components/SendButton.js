@@ -3,10 +3,20 @@ import { render } from 'react-dom'
 
 import Hash from './Hash'
 
+let styles = {
+	backgroundColor: '#11E011',
+	borderRadius: '3px',
+	border: '0px solid',
+	display: 'inline-block',
+	color: '#ffffff',
+	padding: '3px 9px 3px 9px',
+  marginLeft: '10px'
+}
+
 class SendButton extends React.Component {
 
   render() {
-    return <button type="button" onClick={this.click}>Send</button>
+    return <button type="button" style={styles} onClick={this.click}>Send</button>
   }
 
   click() {
