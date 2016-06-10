@@ -3,26 +3,23 @@ import { render } from 'react-dom'
 import Radium from 'radium'
 
 import Map from './Map'
+import size from '../styles/size'
+import center from '../styles/center'
 
-let styles = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
+let styles = Object.assign({}, size, center, {
   border: '2px solid #dadada',
-  borderRadius: '3px',
   ':focus': {
     outline: 'none',
     border: '3px solid #9ecaed',
     boxShadow: '0 0 10px #9ecaed'
   }
-}
+})
 
 class SearchBase extends React.Component{
 
   render() {
     return (
-      <input ref='autocomplete' style={styles} type="text"></input>
+      <input ref='autocomplete' style={styles} type="text" placeholder="Brickyard Bar "></input>
     )
   }
 

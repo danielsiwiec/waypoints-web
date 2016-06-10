@@ -2,16 +2,15 @@ import React from 'react'
 import { render } from 'react-dom'
 
 import Hash from './Hash'
+import size from '../styles/size'
 
-let styles = {
+let styles = Object.assign({}, size, {
 	backgroundColor: '#11E011',
-	borderRadius: '3px',
 	border: '0px solid',
 	display: 'inline-block',
 	color: '#ffffff',
-	padding: '3px 9px 3px 9px',
   marginLeft: '10px'
-}
+})
 
 class SendButton extends React.Component {
 

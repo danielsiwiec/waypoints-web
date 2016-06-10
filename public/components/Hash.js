@@ -1,21 +1,16 @@
 import React from 'react'
 import { render } from 'react-dom'
 
+import size from '../styles/size'
+import center from '../styles/center'
+
+let styles = Object.assign({}, size, center, {
+    color: 'gray'
+})
+
 class Hash extends React.Component {
-
-  spanStyle() {
-    return {
-      color: 'gray',
-      fontSize: '200%',
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)'
-    }
-  }
-
   render() {
-    return (<span style={this.spanStyle()}>{this.props.hash}</span>)
+    return (<span style={styles}>{this.props.hash}</span>)
   }
 }
 

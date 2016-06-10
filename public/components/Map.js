@@ -1,16 +1,14 @@
 import React from 'react'
 
 import SendButton from './SendButton'
+import size from '../styles/size'
+import center from '../styles/center'
 
-let mapStyles = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
+let mapStyles = Object.assign({}, size, center, {
   height: '50%',
   width: '50%',
   textAlign: 'center'
-}
+})
 
 let mapCanvasStyles = {
   display: 'block',
