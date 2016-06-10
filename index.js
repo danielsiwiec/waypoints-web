@@ -1,6 +1,7 @@
 'use strict'
 
 let express = require('express'),
+  compression = require('compression'),
   app = express(),
   mongoose = require('mongoose'),
   bodyParser = require('body-parser'),
@@ -12,6 +13,7 @@ let express = require('express'),
 app.set('port', (process.env.PORT || 5000))
 
 app.use(bodyParser.json())
+app.use(compression())
 app.use(express.static(__dirname + '/public'))
 
 connectToMongo()
