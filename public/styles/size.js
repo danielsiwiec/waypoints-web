@@ -1,5 +1,5 @@
 export default {
-  fontSize: '46px',
-  borderRadius: '10px',
+  fontSize: '36px',
+  borderRadius: '8px',
   padding: '9px 13px 9px 13px'
 }
