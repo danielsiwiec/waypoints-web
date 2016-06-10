@@ -1,6 +1,7 @@
 import React from 'react'
 
 import SendButton from './SendButton'
+import BackButton from './BackButton'
 import size from '../styles/size'
 import center from '../styles/center'
 
@@ -30,6 +31,7 @@ class Map extends React.Component {
       <div>
         <span>{this.props.place.name}</span>
         <SendButton place={this.props.place}></SendButton>
+        <BackButton />
       </div>
     </div>
     )
