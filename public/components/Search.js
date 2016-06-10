@@ -19,7 +19,7 @@ class SearchBase extends React.Component{
 
   render() {
     return (
-      <input ref='autocomplete' style={styles} type="text" placeholder="Brickyard Bar "></input>
+      <input ref='autocomplete' style={styles} type="text" placeholder="Freddie's Sandwiches"></input>
     )
   }
 
