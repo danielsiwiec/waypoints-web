@@ -28,8 +28,8 @@ class Map extends React.Component {
     <div style={mapStyles}>
       <div style={mapCanvasStyles} ref="mapCanvas"></div>
       <div>
-        <span>{this.props.name}</span>
-        <SendButton></SendButton>
+        <span>{this.props.place.name}</span>
+        <SendButton place={this.props.place}></SendButton>
       </div>
     </div>
     )
@@ -50,8 +50,8 @@ class Map extends React.Component {
 
   mapCenter() {
     return new google.maps.LatLng(
-      this.props.marker.lat,
-      this.props.marker.lng
+      this.props.place.geo.lat,
+      this.props.place.geo.long
     )
   }
 

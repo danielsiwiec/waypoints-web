@@ -27,11 +27,14 @@ class SearchBase extends React.Component{
     var autocomplete = new google.maps.places.Autocomplete(this.refs.autocomplete)
     autocomplete.addListener('place_changed', () => {
       var place = autocomplete.getPlace()
-      let latLng = {
-        lat: place.geometry.location.lat(),
-        lng: place.geometry.location.lng()
+      let location = {
+        name: place.name,
+        geo: {
+          lat: place.geometry.location.lat(),
+          long: place.geometry.location.lng()
+        }
       }
-      render(<Map marker={latLng} name={place.name} />, document.getElementById('root'))
+      render(<Map place={location} />, document.getElementById('root'))
     })
   }
 }

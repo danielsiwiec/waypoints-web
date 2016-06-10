@@ -12,21 +12,27 @@ let styles = Object.assign({}, size, {
   marginLeft: '10px'
 })
 
+let httpPost = function(url, body, callback) {
+	let xmlHttp = new XMLHttpRequest()
+	xmlHttp.open('POST', url)
+	xmlHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
+	xmlHttp.send(JSON.stringify(body))
+	xmlHttp.onreadystatechange = () => {
+		if (xmlHttp.readyState == 4 && xmlHttp.status >= 200 && xmlHttp.status <= 299)
+				callback(JSON.parse(xmlHttp.responseText))
+	}
+}
+
 class SendButton extends React.Component {
 
   render() {
-    return <button type="button" style={styles} onClick={this.click}>Send</button>
+    return <button type="button" style={styles} onClick={this.click.bind(this)}>Send</button>
   }
 
   click() {
-    fetch('/locations', {
-      method: 'POST',
-      body: JSON.stringify(location)
-    }).then((response) => {
-      return response.json()
-    }).then((data) => {
-      render(<Hash hash={data.hash}></Hash>, document.getElementById('root'))
-    })
+		httpPost('/locations', this.props.place, (data) => {
+			render(<Hash hash={data.hash}></Hash>, document.getElementById('root'))
+		})
   }
 }
 
