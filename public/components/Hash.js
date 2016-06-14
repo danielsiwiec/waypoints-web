@@ -1,5 +1,4 @@
 import React from 'react'
-import { render } from 'react-dom'
 
 import size from '../styles/size'
 import center from '../styles/center'

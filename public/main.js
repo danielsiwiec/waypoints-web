@@ -1,8 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import Search from './components/Search'
+import Home from './components/Home'
 
 window.init = () => {
-  render(<Search></Search>, document.getElementById('root'))
+  render(<Home></Home>, document.getElementById('root'))
 }

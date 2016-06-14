@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "startDev": "webpack-dev-server --content-base public --progress --colors",
+    "dev": "webpack-dev-server --content-base public --progress --colors",
     "bundle": "webpack --output-path public --optimize-minimize",
     "start": "npm run bundle && node index.js"
   },
