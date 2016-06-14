@@ -11,7 +11,8 @@ class TourBase extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      showNotes: localStorage.getItem(storageKey) < Notes.version
+      // showNotes: localStorage.getItem(storageKey) < Notes.version
+      showNotes: false
     }
   }
 
