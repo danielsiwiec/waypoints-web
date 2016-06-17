@@ -1,49 +1,54 @@
 import React from 'react'
-import Radium from 'radium'
 
-import Notes from '../Notes'
-import {modal, modalContent, close, header} from '../styles/modal'
+import Modal from './Modal'
+import modalStyles from '../styles/modal.css'
+import modalContentStyles from '../styles/modalContent.css'
+import notes from '../Notes'
 
-let storageKey = 'sendpointsShowNotes'
+class Tour extends React.Component {
 
-class TourBase extends React.Component {
-
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.state = {
-      // showNotes: localStorage.getItem(storageKey) < Notes.version
-      showNotes: false
-    }
+    this.state = {}
   }
 
   render() {
-    if (this.state.showNotes) {
-      return (
-        <div style={modal}>
-          <div style={modalContent}>
-            <span style={close} onClick={this.hide.bind(this)}>Got it!</span>
-            <p style={header}>We added new features!</p>
-            <ul>
-            {Notes.notes.map((note) => {
-              return <li>note</li>
-            })}
-            </ul>
-          </div>
-        </div>
-      )
-    } else {
-      return (null)
-    }
+    return (
+      <Modal title="New features!" show={this.state.modal} onClose={this.updateUserVersion.bind(this)}>
+        <p>We implemented some new features for you:</p>
+        <ul>
+          {this.getNewFeatures(this.getUsersVersion()).map((feature) => {
+            return <li><strong>{feature.title}</strong> {feature.description}</li>
+          })}
+        </ul>
+      </Modal>
+    )
   }
 
-  hide() {
-    this.setState({
-      showNotes: false
-    })
-    localStorage.setItem(storageKey, Notes.version)
+  getUsersVersion(){
+    return localStorage.sendpointsShowNotes || 0
   }
+
+  updateUserVersion(){
+    localStorage.setItem('sendpointsShowNotes', this.currentVersion())
+  }
+
+  currentVersion() {
+    return notes.releases
+      .reduce((acc, release) => {return acc > release.version ? acc : release.version}, 0)
+  }
+
+  componentDidMount() {
+    let show = this.getUsersVersion() < this.currentVersion()
+    setTimeout(()=> {this.setState({modal: show})}, 1000)
+  }
+
+  getNewFeatures(version) {
+    return notes.releases
+      .filter((release) => {return release.version > version})
+      .reduce((acc, release) => {return acc.concat(release.features)}, [])
+  }
+
 }
-
-const Tour = Radium(TourBase)
 
 export default Tour
