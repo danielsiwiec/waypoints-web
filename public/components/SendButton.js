@@ -23,6 +23,16 @@ let httpPost = function(url, body, callback) {
 	}
 }
 
+let payload = function(place) {
+	return {
+		name: place.name,
+		geo: {
+			lat: place.geometry.location.lat(),
+			long: place.geometry.location.lng()
+		}
+	}
+}
+
 class SendButton extends React.Component {
 
   render() {
@@ -30,7 +40,7 @@ class SendButton extends React.Component {
   }
 
   click() {
-		httpPost('/locations', this.props.place, (data) => {
+		httpPost('/locations', payload(this.props.place), (data) => {
 			render(<Hash hash={data.hash}></Hash>, document.getElementById('root'))
 		})
   }

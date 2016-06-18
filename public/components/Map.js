@@ -45,7 +45,7 @@ class Map extends React.Component {
     this.marker = this.createMarker()
     this.marker.addListener('dragend', () => {
       this.setState({
-        place: Object.assign(this.state.place, {geo: {lat:this.marker.position.lat(), long:this.marker.position.lng()}})})
+        place: Object.assign(this.state.place, {geometry: this.marker.position})})
     })
   }
 
@@ -58,10 +58,7 @@ class Map extends React.Component {
   }
 
   mapCenter() {
-    return new google.maps.LatLng(
-      this.state.place.geo.lat,
-      this.state.place.geo.long
-    )
+    return this.state.place.geometry.location
   }
 
   createMarker() {
