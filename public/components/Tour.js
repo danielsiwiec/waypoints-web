@@ -26,11 +26,11 @@ class Tour extends React.Component {
   }
 
   getUsersVersion(){
-    return localStorage.sendpointsShowNotes || 0
+    return localStorage.sendpointsVersion || 0
   }
 
   updateUserVersion(){
-    localStorage.setItem('sendpointsShowNotes', this.currentVersion())
+    localStorage.setItem('sendpointsVersion', this.currentVersion())
   }
 
   currentVersion() {
