@@ -1,0 +1,9 @@
+{
+    "releases": [{
+        "version": 1,
+        "features": [{
+            "title": "Fine-tune location",
+            "description": "Per popular demand - the marker on the map is now moveable"
+        }]
+    }]
+}

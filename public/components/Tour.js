@@ -3,7 +3,7 @@ import React from 'react'
 import Modal from './Modal'
 import modalStyles from '../styles/modal.css'
 import modalContentStyles from '../styles/modalContent.css'
-import notes from '../Notes'
+import notes from '../Notes.json'
 
 class Tour extends React.Component {
 
