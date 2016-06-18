@@ -20,8 +20,11 @@ let mapCanvasStyles = {
 
 class Map extends React.Component {
 
-  static propTypes() {
-  	marker: React.PropTypes.objectOf(React.PropTypes.number).isRequired
+  constructor(props) {
+    super(props)
+    this.state = {
+      place: this.props.place
+    }
   }
 
 	render() {
@@ -29,8 +32,8 @@ class Map extends React.Component {
     <div style={mapStyles}>
       <div style={mapCanvasStyles} ref="mapCanvas"></div>
       <div>
-        <span>{this.props.place.name}</span>
-        <SendButton place={this.props.place}></SendButton>
+        <span>{this.state.place.name}</span>
+        <SendButton place={this.state.place}></SendButton>
         <BackButton />
       </div>
     </div>
@@ -40,6 +43,10 @@ class Map extends React.Component {
   componentDidMount() {
     this.map = this.createMap()
     this.marker = this.createMarker()
+    this.marker.addListener('dragend', () => {
+      this.setState({
+        place: Object.assign(this.state.place, {geo: {lat:this.marker.position.lat(), long:this.marker.position.lng()}})})
+    })
   }
 
   createMap() {
@@ -52,15 +59,17 @@ class Map extends React.Component {
 
   mapCenter() {
     return new google.maps.LatLng(
-      this.props.place.geo.lat,
-      this.props.place.geo.long
+      this.state.place.geo.lat,
+      this.state.place.geo.long
     )
   }
 
   createMarker() {
     return new google.maps.Marker({
       position: this.mapCenter(),
-      map: this.map
+      map: this.map,
+      draggable: true,
+      crossOnDrag: false
     })
 	}
 }
