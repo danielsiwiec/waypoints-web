@@ -17,8 +17,8 @@ export default class NewFeatures extends Component {
         <div className={styles.body}>
           <p className={styles.subtitle}>We implemented some new features for you:</p>
           <ul className={styles.list}>
-            {this.getNewFeatures(this.getUsersVersion()).map((feature) => {
-              return <li className={styles.item}><strong>{feature.title}</strong> {feature.description}</li>
+            {this.getNewFeatures(this.getUsersVersion()).map((feature, index) => {
+              return <li key={index} className={styles.item}><strong>{feature.title}</strong> {feature.description}</li>
             })}
           </ul>
           <button className={styles.button} onClick={this.closeModal.bind(this)}>Got it!</button>
