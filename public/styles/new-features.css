@@ -30,18 +30,11 @@
 }
 
 .button {
-	border: none;
-	padding: 0.6em 1.2em;
-	background: blue;
-	color: #fff;
-	font-family: 'Lato', Calibri, Arial, sans-serif;
-	font-size: 0.8em;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	cursor: pointer;
+	composes: button from "./buttons.css";
 	display: block;
 	margin: 0 auto;
-	border-radius: 2px;
+	background: blue;
+	color: #fff;
 }
 
 .button:hover {
