@@ -1,11 +1,10 @@
-import React from 'react'
+import React, {Component} from 'react'
 
 import Modal from './Modal'
-import modalStyles from '../styles/modal.css'
-import modalContentStyles from '../styles/modalContent.css'
+import styles from '../styles/modalContent.css'
 import notes from '../Notes.json'
 
-class NewFeatures extends React.Component {
+export default class NewFeatures extends Component {
 
   constructor(props) {
     super(props)
@@ -15,10 +14,10 @@ class NewFeatures extends React.Component {
   render() {
     return (
       <Modal title="New features!" show={this.state.modal} onClose={this.updateUserVersion.bind(this)}>
-        <p>We implemented some new features for you:</p>
-        <ul>
+        <p className={styles.subtitle}>We implemented some new features for you:</p>
+        <ul className={styles.list}>
           {this.getNewFeatures(this.getUsersVersion()).map((feature) => {
-            return <li><strong>{feature.title}</strong> {feature.description}</li>
+            return <li className={styles.item}><strong>{feature.title}</strong> {feature.description}</li>
           })}
         </ul>
       </Modal>
@@ -50,5 +49,3 @@ class NewFeatures extends React.Component {
   }
 
 }
-
-export default NewFeatures

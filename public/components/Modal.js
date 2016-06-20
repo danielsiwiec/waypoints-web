@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {Component} from 'react'
+import classNames from 'classnames/bind'
 
 import ReactModal from 'react-modal'
-import modalStyles from '../styles/modal.css'
-import modalContentStyles from '../styles/modalContent.css'
+import styles from '../styles/modal.css'
 
-class TourModal extends React.Component {
+let cx = classNames.bind(styles)
+
+export default class TourModal extends Component {
 
   constructor(props) {
     super(props)
@@ -12,19 +14,24 @@ class TourModal extends React.Component {
   }
 
   render() {
+    let className = cx({
+      modal: true,
+      show : this.state.transform
+    })
+
     return (
-      <ReactModal isOpen={this.props.show && this.state.show} className={"modal " + this.state.style} overlayClassName="overlay" onAfterOpen={this.transform.bind(this)}>
-        <h3>{this.props.title}</h3>
-        <div>
+      <ReactModal isOpen={this.props.show && this.state.show} className={className} overlayClassName={styles.overlay} onAfterOpen={this.transform.bind(this)}>
+        <h3 className={styles.title}>{this.props.title}</h3>
+        <div className={styles.body}>
           {this.props.children}
-          <button onClick={this.hideModal.bind(this)}>Got it!</button>
+          <button className={styles.button} onClick={this.hideModal.bind(this)}>Got it!</button>
         </div>
       </ReactModal>
     )
   }
 
   transform() {
-    this.setState({style: 'show'})
+    this.setState({transform: true})
   }
 
   hideModal() {
@@ -32,5 +39,3 @@ class TourModal extends React.Component {
     this.props.onClose()
   }
 }
-
-export default TourModal

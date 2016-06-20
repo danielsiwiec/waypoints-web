@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {Component} from 'react'
 
 import Search from './Search'
 import NewFeatures from './NewFeatures'
 
-class Home extends React.Component {
+export default class Home extends Component {
 
   render() {
     return(
@@ -14,5 +14,3 @@ class Home extends React.Component {
     )
   }
 }
-
-export default Home

@@ -1,16 +1,9 @@
-import React from 'react'
+import React, {Component} from 'react'
 
-import size from '../styles/size'
-import center from '../styles/center'
+import styles from '../styles/hash.css'
 
-let styles = Object.assign({}, size, center, {
-    color: 'gray'
-})
-
-class Hash extends React.Component {
+export default class Hash extends Component {
   render() {
-    return (<span style={styles}>{this.props.hash}</span>)
+    return (<span className={styles.hash}>{this.props.hash}</span>)
   }
 }
-
-export default Hash

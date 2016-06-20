@@ -1,0 +1,5 @@
+.button {
+  composes: big from "./size.css";
+  composes: button from "./buttons.css";
+  background-color: #E01111;
+}

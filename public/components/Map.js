@@ -1,24 +1,10 @@
-import React from 'react'
+import React, {Component} from 'react'
 
 import SendButton from './SendButton'
 import BackButton from './BackButton'
-import size from '../styles/size'
-import center from '../styles/center'
+import styles from '../styles/map.css'
 
-let mapStyles = Object.assign({}, size, center, {
-  height: '50%',
-  width: '50%',
-  textAlign: 'center'
-})
-
-let mapCanvasStyles = {
-  display: 'block',
-  width: '100%',
-  height: '100%',
-  marginBottom: '30px'
-}
-
-class Map extends React.Component {
+export default class Map extends Component {
 
   constructor(props) {
     super(props)
@@ -29,8 +15,8 @@ class Map extends React.Component {
 
 	render() {
     return(
-    <div style={mapStyles}>
-      <div style={mapCanvasStyles} ref="mapCanvas"></div>
+    <div className={styles.map}>
+      <div className={styles.canvas} ref="mapCanvas"></div>
       <div>
         <span>{this.state.place.name}</span>
         <SendButton place={this.state.place}></SendButton>
@@ -70,5 +56,3 @@ class Map extends React.Component {
     })
 	}
 }
-
-export default Map

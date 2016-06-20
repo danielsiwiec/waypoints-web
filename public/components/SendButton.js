@@ -1,16 +1,8 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { render } from 'react-dom'
 
 import Hash from './Hash'
-import size from '../styles/size'
-
-let styles = Object.assign({}, size, {
-	backgroundColor: '#11E011',
-	border: '0px solid',
-	display: 'inline-block',
-	color: '#ffffff',
-  marginLeft: '10px'
-})
+import styles from '../styles/send-button.css'
 
 let httpPost = function(url, body, callback) {
 	let xmlHttp = new XMLHttpRequest()
@@ -33,10 +25,10 @@ let payload = function(place) {
 	}
 }
 
-class SendButton extends React.Component {
+export default class SendButton extends Component {
 
   render() {
-    return <button type="button" style={styles} onClick={this.click.bind(this)}>Send</button>
+    return <button type="button" className={styles.button} onClick={this.click.bind(this)}>Send</button>
   }
 
   click() {
@@ -45,5 +37,3 @@ class SendButton extends React.Component {
 		})
   }
 }
-
-export default SendButton
