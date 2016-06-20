@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Search from './Search'
-import Tour from './Tour'
+import NewFeatures from './NewFeatures'
 
 class Home extends React.Component {
 
@@ -9,7 +9,7 @@ class Home extends React.Component {
     return(
       <div>
         <Search />
-        <Tour />
+        <NewFeatures />
       </div>
     )
   }

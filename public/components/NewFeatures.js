@@ -5,7 +5,7 @@ import modalStyles from '../styles/modal.css'
 import modalContentStyles from '../styles/modalContent.css'
 import notes from '../Notes.json'
 
-class Tour extends React.Component {
+class NewFeatures extends React.Component {
 
   constructor(props) {
     super(props)
@@ -51,4 +51,4 @@ class Tour extends React.Component {
 
 }
 
-export default Tour
+export default NewFeatures
