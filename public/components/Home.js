@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 
 import Search from './Search'
 import NewFeatures from './NewFeatures'
+import notes from '../Notes.json'
 
 export default class Home extends Component {
 
@@ -9,7 +10,7 @@ export default class Home extends Component {
     return(
       <div>
         <Search />
-        <NewFeatures />
+        <NewFeatures notes={notes}/>
       </div>
     )
   }

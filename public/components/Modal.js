@@ -10,7 +10,7 @@ export default class TourModal extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {show: true}
+    this.state = {transform: false}
   }
 
   render() {
@@ -20,22 +20,13 @@ export default class TourModal extends Component {
     })
 
     return (
-      <ReactModal isOpen={this.props.show && this.state.show} className={className} overlayClassName={styles.overlay} onAfterOpen={this.transform.bind(this)}>
-        <h3 className={styles.title}>{this.props.title}</h3>
-        <div className={styles.body}>
-          {this.props.children}
-          <button className={styles.button} onClick={this.hideModal.bind(this)}>Got it!</button>
-        </div>
+      <ReactModal isOpen={this.props.show} className={className} overlayClassName={styles.overlay} onAfterOpen={this.transform.bind(this)}>
+        {this.props.children}
       </ReactModal>
     )
   }
 
   transform() {
     this.setState({transform: true})
-  }
-
-  hideModal() {
-    this.setState({show: false})
-    this.props.onClose()
   }
 }
