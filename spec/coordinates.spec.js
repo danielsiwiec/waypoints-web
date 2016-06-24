@@ -33,6 +33,10 @@ describe('coordinates', () => {
     expect(coordinates(`41°24'12.2"S 2°10'26.5"W`)).toEqual({lat: -41.40339, lng: -2.17403})
   })
 
+  it('should recognize Degrees, minutes and seconds coordinates for SW with a space before NSEW', () => {
+    expect(coordinates(`41°24'12.2" S 2°10'26.5" W`)).toEqual({lat: -41.40339, lng: -2.17403})
+  })
+
   it('should return null for a search string input', () => {
     expect(coordinates('freddys sandwitches')).toBeNull()
   })

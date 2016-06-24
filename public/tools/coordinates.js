@@ -27,7 +27,8 @@ function parseFromDecimalMinutes(input) {
 }
 
 function parseFromMinutesSeconds(input) {
-  let coordinates = input.split(' ')
+  // remove spaces before NSEW
+  let coordinates = input.replace(/\s(\D)/g,"$1").split(' ')
   let lat = coordinates[0].trim().match(/^(\d+)°(\d+)'(\d+(\.\d+))?"([NS])/)
   let lng = coordinates[1].trim().match(/^(\d+)°(\d+)'(\d+(\.\d+))?"([EW])/)
 
@@ -52,7 +53,7 @@ function pickParser(input) {
     return parseFromDecimalDegrees
   } else if (input.match(/^[-+]?\d+ \d+(\.\d+)?,?\s*[-+]?\d+ \d+(\.\d+)?$/)){
     return parseFromDecimalMinutes
-  } else if (input.match(/^\d+°\d+'\d+(\.\d+)?"[NS]\s*\d+°\d+'\d+(\.\d+)?"[EW]$/)){
+  } else if (input.match(/^\d+°\d+'\d+(\.\d+)?"\s*[NS]\s*\d+°\d+'\d+(\.\d+)?"\s*[EW]$/)){
     return parseFromMinutesSeconds
   } else return () => {return null}
 }
