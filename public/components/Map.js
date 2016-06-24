@@ -19,6 +19,7 @@ export default class Map extends Component {
       <div className={styles.canvas} ref="mapCanvas"></div>
       <div>
         <input className={styles.name} type="text" value={this.state.place.name} onChange={this.handleNameChange.bind(this)}/>
+        <br />
         <SendButton place={this.state.place}></SendButton>
         <BackButton />
       </div>
