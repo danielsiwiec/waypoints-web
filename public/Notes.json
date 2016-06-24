@@ -5,5 +5,11 @@
             "title": "Fine-tune location",
             "description": "Per popular demand - the marker on the map is now moveable"
         }]
+    }, {
+        "version": 2,
+        "features": [{
+            "title": "GPS coordinates",
+            "description": "Now, you can enter GPS coordinates in DD, DMS or DMM format"
+        }]
     }]
 }
