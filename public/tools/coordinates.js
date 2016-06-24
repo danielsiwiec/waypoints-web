@@ -4,7 +4,7 @@ export default function(input) {
 }
 
 function parseFromDecimalDegrees(input) {
-  let coordinates = input.split(',')
+  let coordinates = input.replace(',',' ').replace(/\s+/, ' ').split(' ')
   return {
     lat: parseFloat(coordinates[0]),
     lng: parseFloat(coordinates[1])
@@ -48,7 +48,7 @@ function parseFromMinutesSeconds(input) {
 }
 
 function pickParser(input) {
-  if (input.match(/^[-+]?\d+(\.\d+)?,\s*[-+]?\d+(\.\d+)?$/)){
+  if (input.match(/^[-+]?\d+(\.\d+)?,?\s*[-+]?\d+(\.\d+)?$/)){
     return parseFromDecimalDegrees
   } else if (input.match(/^[-+]?\d+ \d+(\.\d+)?,\s*[-+]?\d+ \d+(\.\d+)?$/)){
     return parseFromDecimalMinutes

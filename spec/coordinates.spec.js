@@ -5,6 +5,10 @@ describe('coordinates', () => {
     expect(coordinates('41.40338, 2.17403')).toEqual({lat: 41.40338, lng: 2.17403})
   })
 
+  it('should recognize Decimal Degrees coordinates without a comma', () => {
+    expect(coordinates('41.40338 2.17403')).toEqual({lat: 41.40338, lng: 2.17403})
+  })
+
   it('should recognize Decimal Degrees negative coordinates', () => {
     expect(coordinates('-41.40338, -2.17403')).toEqual({lat: -41.40338, lng: -2.17403})
   })
