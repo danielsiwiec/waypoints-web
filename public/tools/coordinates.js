@@ -4,7 +4,7 @@ export default function(input) {
 }
 
 function parseFromDecimalDegrees(input) {
-  let coordinates = input.replace(',',' ').replace(/\s+/, ' ').split(' ')
+  let coordinates = input.replace(',',' ').replace(/\s+/g, ' ').split(' ')
   return {
     lat: parseFloat(coordinates[0]),
     lng: parseFloat(coordinates[1])
@@ -12,9 +12,9 @@ function parseFromDecimalDegrees(input) {
 }
 
 function parseFromDecimalMinutes(input) {
-  let coordinates = input.split(',')
-  let lat = coordinates[0].trim().split(' ')
-  let lng = coordinates[1].trim().split(' ')
+  let coordinates = input.replace(',',' ').replace(/\s+/g, ' ').split(' ')
+  let lat = [coordinates[0], coordinates[1]]
+  let lng = [coordinates[2], coordinates[3]]
 
   function getSign(input) {
     return parseFloat(input) > 0 ? 1 : -1
@@ -50,7 +50,7 @@ function parseFromMinutesSeconds(input) {
 function pickParser(input) {
   if (input.match(/^[-+]?\d+(\.\d+)?,?\s*[-+]?\d+(\.\d+)?$/)){
     return parseFromDecimalDegrees
-  } else if (input.match(/^[-+]?\d+ \d+(\.\d+)?,\s*[-+]?\d+ \d+(\.\d+)?$/)){
+  } else if (input.match(/^[-+]?\d+ \d+(\.\d+)?,?\s*[-+]?\d+ \d+(\.\d+)?$/)){
     return parseFromDecimalMinutes
   } else if (input.match(/^\d+°\d+'\d+(\.\d+)?"[NS]\s*\d+°\d+'\d+(\.\d+)?"[EW]$/)){
     return parseFromMinutesSeconds

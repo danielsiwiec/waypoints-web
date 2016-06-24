@@ -17,6 +17,10 @@ describe('coordinates', () => {
     expect(coordinates('41 24.2028, 2 10.4418')).toEqual({lat: 41.40338, lng: 2.17403})
   })
 
+  it('should recognize Decimal Minutes coordinates without a comma', () => {
+    expect(coordinates('41 24.2028 2 10.4418')).toEqual({lat: 41.40338, lng: 2.17403})
+  })
+
   it('should recognize Decimal Minutes negative coordinates', () => {
     expect(coordinates('-41 24.2028, -2 10.4418')).toEqual({lat: -41.40338, lng: -2.17403})
   })
