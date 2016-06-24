@@ -9,7 +9,14 @@
         "version": 2,
         "features": [{
             "title": "GPS coordinates",
-            "description": "Now, you can enter GPS coordinates in DD, DMS or DMM format"
+            "description": "You can enter GPS coordinates in DD, DMS or DMM format"
+        }]
+    },
+    {
+        "version": 3,
+        "features": [{
+            "title": "Rename location",
+            "description": "You can give your location a custom name before sending"
         }]
     }]
 }

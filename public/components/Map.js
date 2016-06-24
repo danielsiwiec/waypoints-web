@@ -18,7 +18,7 @@ export default class Map extends Component {
     <div className={styles.map}>
       <div className={styles.canvas} ref="mapCanvas"></div>
       <div>
-        <span>{this.state.place.name}</span>
+        <input className={styles.name} type="text" value={this.state.place.name} onChange={this.handleNameChange.bind(this)}/>
         <SendButton place={this.state.place}></SendButton>
         <BackButton />
       </div>
@@ -26,12 +26,23 @@ export default class Map extends Component {
     )
   }
 
+  handleNameChange(event) {
+    this.setState(
+      {
+        place: Object.assign(this.state.place, {name: event.target.value})
+      }
+    )
+  }
+
   componentDidMount() {
     this.map = this.createMap()
     this.marker = this.createMarker()
     this.marker.addListener('dragend', () => {
-      this.setState({
-        place: Object.assign(this.state.place, {geometry: this.marker.position})})
+      this.setState(
+        {
+          place: Object.assign(this.state.place, {geometry: this.marker.position})
+        }
+      )
     })
   }
 

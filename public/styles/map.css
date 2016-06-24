@@ -6,6 +6,11 @@
   text-align: center;
 }
 
+.name {
+  composes: big from "./size.css";
+  border: 2px solid #dadada;
+}
+
 .canvas {
   display: block;
   width: 100%;
