@@ -18,5 +18,11 @@
             "title": "Rename location",
             "description": "You can give your location a custom name before sending"
         }]
+    }, {
+        "version": 4,
+        "features": [{
+            "title": "Fixed dragging",
+            "description": "Oops. Looks like marker dragging needed fixing. Thanks for telling us!"
+        }]
     }]
 }

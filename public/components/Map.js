@@ -41,7 +41,7 @@ export default class Map extends Component {
     this.marker.addListener('dragend', () => {
       this.setState(
         {
-          place: Object.assign(this.state.place, {geometry: this.marker.position})
+          place: Object.assign(this.state.place, {geometry: {location: this.marker.position}})
         }
       )
     })
