@@ -27,4 +27,6 @@ module.exports = {
     port: 5000
   },
   devtool: 'source-map'
-};
+}
+
+new webpack.optimize.UglifyJsPlugin({})
