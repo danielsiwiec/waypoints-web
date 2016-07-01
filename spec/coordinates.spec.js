@@ -37,6 +37,10 @@ describe('coordinates', () => {
     expect(coordinates(`41°24'12.2" S 2°10'26.5" W`)).toEqual({lat: -41.40339, lng: -2.17403})
   })
 
+  it('should recognize UTM format', () => {
+    expect(coordinates('31T 430959.5858286716 4583866.770942634')).toEqual({lat: 41.40338, lng: 2.17403})
+  })
+
   it('should return null for a search string input', () => {
     expect(coordinates('freddys sandwitches')).toBeNull()
   })

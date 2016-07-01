@@ -24,5 +24,12 @@
             "title": "Fixed dragging",
             "description": "Oops. Looks like marker dragging needed fixing. Thanks for telling us!"
         }]
+    },
+    {
+        "version": 5,
+        "features": [{
+            "title": "UTM coordinates",
+            "description": "You can now use UTM coordinates like 31T 430959.5858286716 4583866.770942634"
+        }]
     }]
 }

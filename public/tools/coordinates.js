@@ -1,9 +1,11 @@
+import utm from 'utm-bugfix'
+
 export default function(input) {
   let parsingFunc = pickParser(input)
   return parsingFunc(input)
 }
 
-function parseFromDecimalDegrees(input) {
+function fromDecimalDegrees(input) {
   let coordinates = input.replace(',',' ').replace(/\s+/g, ' ').split(' ')
   return {
     lat: parseFloat(coordinates[0]),
@@ -11,7 +13,7 @@ function parseFromDecimalDegrees(input) {
   }
 }
 
-function parseFromDecimalMinutes(input) {
+function fromDecimalMinutes(input) {
   let coordinates = input.replace(',',' ').replace(/\s+/g, ' ').split(' ')
   let lat = [coordinates[0], coordinates[1]]
   let lng = [coordinates[2], coordinates[3]]
@@ -26,7 +28,7 @@ function parseFromDecimalMinutes(input) {
   }
 }
 
-function parseFromMinutesSeconds(input) {
+function fromMinutesSeconds(input) {
   // remove spaces before NSEW
   let coordinates = input.replace(/\s(\D)/g,"$1").split(' ')
   let lat = coordinates[0].trim().match(/^(\d+)°(\d+)'(\d+(\.\d+))?"([NS])/)
@@ -48,12 +50,27 @@ function parseFromMinutesSeconds(input) {
   }
 }
 
+function fromUtm(input) {
+ let match = input.match(/^(\d{2})([C-X]) (\d+(\.\d+)?) (\d+(\.\d+)?)$/)
+ let easting = parseFloat(match[3])
+ let northing = parseFloat(match[5])
+ let zoneNumber = parseInt(match[1])
+ let zoneLetter = match[2]
+ let coordinates = utm.toLatLon(easting, northing, zoneNumber, zoneLetter)
+ return {
+   lat: +(coordinates.latitude.toFixed(5)),
+   lng: +(coordinates.longitude.toFixed(5))
+ }
+}
+
 function pickParser(input) {
   if (input.match(/^[-+]?\d+(\.\d+)?,?\s*[-+]?\d+(\.\d+)?$/)){
-    return parseFromDecimalDegrees
+    return fromDecimalDegrees
   } else if (input.match(/^[-+]?\d+ \d+(\.\d+)?,?\s*[-+]?\d+ \d+(\.\d+)?$/)){
-    return parseFromDecimalMinutes
+    return fromDecimalMinutes
   } else if (input.match(/^\d+°\d+'\d+(\.\d+)?"\s*[NS]\s*\d+°\d+'\d+(\.\d+)?"\s*[EW]$/)){
-    return parseFromMinutesSeconds
+    return fromMinutesSeconds
+  } else if (input.match(/^\d{2}[C-X] \d+(\.\d+)? \d+(\.\d+)?$/)){
+    return fromUtm
   } else return () => {return null}
 }
