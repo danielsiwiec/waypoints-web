@@ -11,6 +11,6 @@ export default class BackButton extends Component {
   }
 
   click() {
-		render(<Search></Search>, document.getElementById('root'))
+		  render(<Search></Search>, document.getElementById('root'))
   }
 }
