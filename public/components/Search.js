@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 
 import Map from './Map'
 import styles from '../styles/search.css'
-import coordinates from '../tools/coordinates'
+import coordinates from 'parse-coords'
 
 export default class Search extends Component{
 
