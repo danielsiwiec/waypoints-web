@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: './public/main.js',
-  output: { path: __dirname, filename: 'bundle.js' },
+  output: { path: __dirname + '/public', filename: 'bundle.js' },
   module: {
     loaders: [
       {
@@ -29,4 +29,8 @@ module.exports = {
   devtool: 'source-map'
 }
 
-new webpack.optimize.UglifyJsPlugin({})
+new webpack.optimize.UglifyJsPlugin({
+  compress: {
+    dead_code: true
+  }
+})

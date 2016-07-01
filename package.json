@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --content-base public --progress --colors",
-    "bundle": "webpack --output-path public --optimize-minimize",
+    "bundle": "webpack",
     "start": "npm run bundle && node index.js"
   },
   "keywords": [],
