@@ -14,7 +14,7 @@ export default class Search extends Component{
   }
 
   componentDidMount() {
-    var autocomplete = new google.maps.places.Autocomplete(this.refs.autocomplete)
+    let autocomplete = new google.maps.places.Autocomplete(this.refs.autocomplete)
     autocomplete.addListener('place_changed', () => {
       let place = autocomplete.getPlace().geometry ? autocomplete.getPlace() : this.tryCoordinates(this.refs.autocomplete.value)
       render(<Map place={place} />, document.getElementById('root'))
