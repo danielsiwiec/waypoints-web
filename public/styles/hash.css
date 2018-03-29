@@ -1,5 +1,0 @@
-.hash {
-  composes: big from "./size.css";
-  composes: center from "./layout.css";
-  color: gray;
-}

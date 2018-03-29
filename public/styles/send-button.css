@@ -1,7 +1,0 @@
-.button {
-  composes: big from "./size.css";
-  composes: button from "./buttons.css";
-  display: inline-block;
-  margin: 10px;
-  background-color: #11E011;
-}
