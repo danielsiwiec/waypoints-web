@@ -19,6 +19,7 @@ export default ({place, onDragEnd}) => (
   <Map
   place={place}
   onDragEnd={onDragEnd}
-  containerElement={<div style={{ height: `400px` }} />}
-  mapElement={<div style={{ height: `100%` }} />} />
+  containerElement={<div style={{ height: '50vh', width: '50vh' }} />}
+  mapElement={<div style={{ height: `100%` }} />}
+  />
 )

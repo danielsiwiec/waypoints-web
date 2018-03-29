@@ -2,10 +2,9 @@ import React, {Component} from 'react'
 import {Grid} from 'material-ui'
 
 import Search from './Search'
-import Map from './Map'
-import SendButton from './SendButton'
-import BackButton from './BackButton'
+import ViewPlace from './ViewPlace'
 import Hash from './Hash'
+import BackButton from './BackButton'
 import {post} from '../utils/fetch'
 // import NewFeatures from 'react-new-features-modal'
 // import notes from './Notes.json'
@@ -29,28 +28,18 @@ export default class Home extends Component {
   
   render() {
     return(
-      <div className='container'>
-        <Grid container justify='center'>
-          <Grid item md={4} xs={10}>
-            {this.state.state === states.SEARCH && <Search onSetPlace={this.onSetPlace}/>}
-            {this.state.state === states.VIEW && <div>
-              <Map place={this.state.place} onDragEnd={this.onDragEnd} />
-              <SendButton onClick={this.onSend} />
-              <BackButton onClick={this.onBack}/>
-              {/* add place name edit */}
-            </div> }
-            {this.state.state === states.HASH && <div>
-              <Hash hash={this.state.hash} />
-              <BackButton onClick={this.onBack}/>
-            </div> }
-          </Grid>
+      <Grid container
+          alignItems='center'
+          justify='center'
+          style={{height: '100vh'}}
+        >
+        <Grid item>
+          {this.state.state === states.SEARCH && <Search onSetPlace={this.onSetPlace}/>}
+          {this.state.state === states.VIEW && <ViewPlace place={this.state.place} onDragEnd={this.onDragEnd} onSend={this.onSend} />}
+          {this.state.state === states.HASH && <Hash hash={this.state.hash} /> }
+          {this.state.state !== states.SEARCH && <BackButton onClick={this.onBack}/> }
         </Grid>
-        <style jsx>{`
-          .container {
-            margin-top: 30vh;
-          }
-        `}</style>
-      </div>
+      </Grid>
     )
   }
 
@@ -76,6 +65,7 @@ export default class Home extends Component {
   }
 
   onBack() {
+    this.setState({place: undefined})
     this.setState({state: states.SEARCH})
   }
 
