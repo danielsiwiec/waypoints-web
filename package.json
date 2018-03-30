@@ -25,6 +25,7 @@
     "parse-coords": "^1.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-ga": "^2.4.1",
     "react-google-maps": "^9.4.5",
     "react-new-features-modal": "^3.0.1",
     "shortid": "^2.2.6",

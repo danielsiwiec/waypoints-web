@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Grid} from 'material-ui'
+import ReactGA from 'react-ga'
 
 import Search from './Search'
 import ViewPlace from './ViewPlace'
@@ -38,6 +39,12 @@ export default class Home extends Component {
         </Grid>
       </Grid>
     )
+  }
+
+  componentDidMount() {
+    ReactGA.initialize('UA-77110226-1')
+    ReactGA.set({ page: window.location.pathname })
+    ReactGA.pageview(window.location.pathname)
   }
 
   onSetPlace(googlePlace) {
