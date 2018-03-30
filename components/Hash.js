@@ -7,7 +7,7 @@ export default ({hash, onBack}) => (
   <Grid container justify='center'>
     <Grid item xs={12}>
       <Grid container justify='center'>
-        {hash}
+        <h1>{hash}</h1>
       </Grid>
     </Grid>
     <Grid item xs={12}>
