@@ -9,10 +9,11 @@ const Search = ({onSetPlace}) => {
 }
 
 function attachAutocomplete(onSetPlace) {
+
   return element => {
     let autocomplete = new google.maps.places.Autocomplete(element)
     autocomplete.addListener('place_changed', () => {
-      let place = autocomplete.getPlace().geometry ? autocomplete.getPlace() : tryCoordinates(autocomplete.getPlace().name)
+      let place = autocomplete.getPlace().geometry ? normalizeGooglePlace(autocomplete.getPlace()) : tryCoordinates(element.value)
       onSetPlace(place)
     })
   }
@@ -21,8 +22,16 @@ function attachAutocomplete(onSetPlace) {
 function tryCoordinates(input) {
   return {
     name: input,
-    location: coordinates(input)
+    geo: coordinates(input)
   }
 }
+
+const normalizeGooglePlace = googlePlace => ({
+  name: googlePlace.name,
+  geo: {
+    lat: googlePlace.geometry.location.lat(),
+    lng: googlePlace.geometry.location.lng(),
+  }
+})
 
 export default Search

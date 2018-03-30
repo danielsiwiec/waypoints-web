@@ -47,14 +47,7 @@ export default class Home extends Component {
     ReactGA.pageview(window.location.pathname)
   }
 
-  onSetPlace(googlePlace) {
-    let place = {
-      name: googlePlace.name,
-      geo: {
-        lat: googlePlace.geometry.location.lat(),
-        lng: googlePlace.geometry.location.lng(),
-      }
-    }
+  onSetPlace(place) {
     this.setState({place})
     this.setState({state: states.VIEW})
   }
