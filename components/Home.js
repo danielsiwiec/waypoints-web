@@ -31,7 +31,7 @@ export default class Home extends Component {
           justify='center'
           style={{height: '100vh'}}
         >
-        <Grid item>
+        <Grid item xs={10} md={6}>
           {this.state.state === states.SEARCH && <Search onSetPlace={this.onSetPlace}/>}
           {this.state.state === states.VIEW && <ViewPlace place={this.state.place} onDragEnd={this.onDragEnd} onNameChange={this.onNameChange} onSend={this.onSend} onBack={this.onBack} />}
           {this.state.state === states.HASH && <Hash hash={this.state.hash} onBack={this.onBack} /> }

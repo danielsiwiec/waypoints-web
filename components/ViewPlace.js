@@ -1,8 +1,7 @@
 import Map from './Map'
 import SendButton from './SendButton'
 import BackButton from './BackButton'
-import {Input} from 'material-ui'
-import {Grid} from 'material-ui'
+import {Input, Grid} from 'material-ui'
 
 export default (props) => (
   <Grid container justify='center'>

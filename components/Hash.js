@@ -1,10 +1,19 @@
 import React from 'react'
+import {Grid} from 'material-ui'
 
 import BackButton from './BackButton'
 
 export default ({hash, onBack}) => (
-  <div>
-    <span>{hash}</span>
-    <BackButton onClick={onBack}/>
-  </div>
+  <Grid container justify='center'>
+    <Grid item xs={12}>
+      <Grid container justify='center'>
+        {hash}
+      </Grid>
+    </Grid>
+    <Grid item xs={12}>
+      <Grid container justify='center'>
+        <BackButton onClick={onBack}/>
+      </Grid>
+    </Grid>
+  </Grid>
 )
