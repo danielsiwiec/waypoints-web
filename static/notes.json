@@ -1,0 +1,42 @@
+{
+    "releases": [{
+            "version": 1,
+            "features": [{
+                "title": "Fine-tune location",
+                "description": "Per popular demand - the marker on the map is now moveable"
+            }]
+        }, {
+            "version": 2,
+            "features": [{
+                "title": "GPS coordinates",
+                "description": "You can enter GPS coordinates in DD, DMS or DMM format"
+            }]
+        },
+        {
+            "version": 3,
+            "features": [{
+                "title": "Rename location",
+                "description": "You can give your location a custom name before sending"
+            }]
+        }, {
+            "version": 4,
+            "features": [{
+                "title": "Fixed dragging",
+                "description": "Oops. Looks like marker dragging needed fixing. Thanks for telling us!"
+            }]
+        },
+        {
+            "version": 5,
+            "features": [{
+                "title": "UTM coordinates",
+                "description": "You can now use UTM coordinates like 31T 430959.5858286716 4583866.770942634"
+            }]
+        }, {
+            "version": 6,
+            "features": [{
+                "title": "Complete redesign",
+                "description": "We've completely redesing this app. Let us know what you think!"
+            }]
+        }
+    ]
+}

@@ -5,8 +5,6 @@ import Search from './Search'
 import ViewPlace from './ViewPlace'
 import Hash from './Hash'
 import {post} from '../utils/fetch'
-// import NewFeatures from 'react-new-features-modal'
-// import notes from './Notes.json'
 
 const states = {
   SEARCH: 1,

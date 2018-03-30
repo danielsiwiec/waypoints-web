@@ -26,7 +26,7 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-google-maps": "^9.4.5",
-    "react-new-features-modal": "^2.0.0",
+    "react-new-features-modal": "^3.0.1",
     "shortid": "^2.2.6",
     "universal-analytics": "^0.4.15"
   },
