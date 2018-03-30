@@ -4,7 +4,6 @@ import {Grid} from 'material-ui'
 import Search from './Search'
 import ViewPlace from './ViewPlace'
 import Hash from './Hash'
-import BackButton from './BackButton'
 import {post} from '../utils/fetch'
 // import NewFeatures from 'react-new-features-modal'
 // import notes from './Notes.json'
@@ -36,9 +35,8 @@ export default class Home extends Component {
         >
         <Grid item>
           {this.state.state === states.SEARCH && <Search onSetPlace={this.onSetPlace}/>}
-          {this.state.state === states.VIEW && <ViewPlace place={this.state.place} onDragEnd={this.onDragEnd} onNameChange={this.onNameChange} onSend={this.onSend} />}
-          {this.state.state === states.HASH && <Hash hash={this.state.hash} /> }
-          {this.state.state !== states.SEARCH && <BackButton onClick={this.onBack}/> }
+          {this.state.state === states.VIEW && <ViewPlace place={this.state.place} onDragEnd={this.onDragEnd} onNameChange={this.onNameChange} onSend={this.onSend} onBack={this.onBack} />}
+          {this.state.state === states.HASH && <Hash hash={this.state.hash} onBack={this.onBack} /> }
         </Grid>
       </Grid>
     )

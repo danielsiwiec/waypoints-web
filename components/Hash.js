@@ -1,5 +1,10 @@
 import React from 'react'
 
-export default ({hash}) => (
-  <span>{hash}</span>
+import BackButton from './BackButton'
+
+export default ({hash, onBack}) => (
+  <div>
+    <span>{hash}</span>
+    <BackButton onClick={onBack}/>
+  </div>
 )
