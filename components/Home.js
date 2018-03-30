@@ -22,6 +22,7 @@ export default class Home extends Component {
     this.state = {state: states.SEARCH}
     this.onSetPlace = this.onSetPlace.bind(this)
     this.onDragEnd = this.onDragEnd.bind(this)
+    this.onNameChange = this.onNameChange.bind(this)
     this.onBack = this.onBack.bind(this)
     this.onSend = this.onSend.bind(this)
   }
@@ -35,7 +36,7 @@ export default class Home extends Component {
         >
         <Grid item>
           {this.state.state === states.SEARCH && <Search onSetPlace={this.onSetPlace}/>}
-          {this.state.state === states.VIEW && <ViewPlace place={this.state.place} onDragEnd={this.onDragEnd} onSend={this.onSend} />}
+          {this.state.state === states.VIEW && <ViewPlace place={this.state.place} onDragEnd={this.onDragEnd} onNameChange={this.onNameChange} onSend={this.onSend} />}
           {this.state.state === states.HASH && <Hash hash={this.state.hash} /> }
           {this.state.state !== states.SEARCH && <BackButton onClick={this.onBack}/> }
         </Grid>
@@ -61,6 +62,12 @@ export default class Home extends Component {
       lat: marker.latLng.lat(),
       long: marker.latLng.lng()
     }
+    this.setState({place})
+  }
+
+  onNameChange(event) {
+    let place = this.state.place
+    place.name = event.target.value
     this.setState({place})
   }
 
