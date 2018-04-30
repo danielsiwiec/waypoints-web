@@ -56,7 +56,7 @@ export default class Home extends Component {
     let place = this.state.place
     place.geo = {
       lat: marker.latLng.lat(),
-      long: marker.latLng.lng()
+      lng: marker.latLng.lng()
     }
     this.setState({place})
   }
