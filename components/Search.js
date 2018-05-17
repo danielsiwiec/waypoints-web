@@ -1,10 +1,22 @@
 import React, {Component} from 'react'
 import {Input} from 'material-ui'
 import coordinates from 'parse-coords'
+import {Grid} from 'material-ui'
+
+import Help from './Help'
 
 const Search = ({onSetPlace}) => {
   return (
-    <Input fullWidth={true} inputRef={attachAutocomplete(onSetPlace)} autoFocus={true} placeholder="Freddie's Sandwiches" />
+    <Grid container >
+      <Grid item xs={1}>
+      </Grid>
+      <Grid item xs={10}>
+        <Input fullWidth={true} inputRef={attachAutocomplete(onSetPlace)} autoFocus={true} placeholder="Freddie's Sandwiches" />
+      </Grid>
+      <Grid item xs={1}>
+        <Help />
+      </Grid>
+    </Grid>
   )
 }
 
