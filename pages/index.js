@@ -10,7 +10,7 @@ export default () => (
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>Sendpoints</title>
     </Head>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCq6QgNSWFXLbLjXCzbdktiA9maf1Cy6h4&libraries=geometry,places"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeyqJ4Zgbp6uoKDeE7k7b9roaMdq-HQco&libraries=geometry,places"></script>
     <NewFeatures notes={notes} limit={2} />
     <Home />
   </div>
