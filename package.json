@@ -25,6 +25,7 @@
     "express": "^4.16.4",
     "moment": "^2.22.2",
     "mongoose": "^5.3.9",
+    "newrelic": "^4.10.0",
     "next": "^7.0.2",
     "parse-coords": "^1.0.0",
     "react": "^16.6.0",
