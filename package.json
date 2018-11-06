@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node index.js",
+    "dev": "next",
     "prestart": "npm run build",
     "build": "next build",
     "start": "NODE_ENV=production node index.js"
@@ -17,26 +17,27 @@
   "author": "Dan Siwiec <daniel.siwiec@gmail.com> (http://danielsiwiec.github.io)",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "classnames": "^2.2.5",
-    "compression": "^1.7.2",
-    "express": "^4.14.0",
+    "body-parser": "^1.18.3",
+    "classnames": "^2.2.6",
+    "compression": "^1.7.3",
+    "express": "^4.16.4",
     "material-ui": "^1.0.0-beta.35",
-    "material-ui-icons": "^1.0.0-beta.35",
-    "moment": "^2.20.1",
-    "mongoose": "^5.0.12",
-    "next": "^6.0.0",
+    "material-ui-icons": "^1.0.0-beta.36",
+    "moment": "^2.22.2",
+    "mongoose": "^5.3.9",
+    "next": "^7.0.2",
     "parse-coords": "^1.0.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-ga": "^2.4.1",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "react-ga": "^2.5.3",
     "react-google-maps": "^9.4.5",
     "react-new-features-modal": "^3.1.4",
-    "shortid": "^2.2.6",
-    "universal-analytics": "^0.4.15"
+    "shortid": "^2.2.14",
+    "universal-analytics": "^0.4.20"
   },
   "devDependencies": {
-    "babel-preset-env": "^1.6.1",
+    "@babel/runtime": "^7.1.2",
+    "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0"
   }
 }
