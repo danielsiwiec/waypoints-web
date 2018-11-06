@@ -1,6 +1,6 @@
 import React from 'react'
-import {Button} from 'material-ui'
+import {Button} from '@material-ui/core'
 
 export default ({onClick}) => {
-	return <Button variant="raised" color="primary" onClick={onClick}>Send</Button>
+	return <Button variant="contained" color="primary" onClick={onClick}>Send</Button>
 }

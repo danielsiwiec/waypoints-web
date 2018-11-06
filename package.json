@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "node index.js",
     "prestart": "npm run build",
     "build": "next build",
     "start": "NODE_ENV=production node index.js"
@@ -17,12 +17,12 @@
   "author": "Dan Siwiec <daniel.siwiec@gmail.com> (http://danielsiwiec.github.io)",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^3.4.0",
+    "@material-ui/icons": "^3.0.1",
     "body-parser": "^1.18.3",
     "classnames": "^2.2.6",
     "compression": "^1.7.3",
     "express": "^4.16.4",
-    "material-ui": "^1.0.0-beta.35",
-    "material-ui-icons": "^1.0.0-beta.36",
     "moment": "^2.22.2",
     "mongoose": "^5.3.9",
     "next": "^7.0.2",

@@ -1,8 +1,7 @@
 import React from 'react'
-import {Grid} from 'material-ui'
-import {Modal, Button, IconButton} from 'material-ui'
-import { withStyles } from 'material-ui/styles'
-import HelpIcon from 'material-ui-icons/Help'
+import {Grid, Modal, Button, IconButton} from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
+import HelpIcon from '@material-ui/icons/Help'
 
 function getModalStyle() {
   return {
