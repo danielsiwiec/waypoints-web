@@ -26,7 +26,7 @@
     "moment": "^2.22.2",
     "mongoose": "^5.3.10",
     "next": "^7.0.2",
-    "parse-coords": "^1.1.0",
+    "parse-coords": "^1.1.1",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
     "react-ga": "^2.5.3",

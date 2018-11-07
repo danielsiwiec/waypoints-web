@@ -43,6 +43,12 @@
                 "title": "Add to home screen",
                 "description": "You can now add sendpoints to your smart phone home screen and (we hope!) it looks pretty good!"
             }]
+        }, {
+            "version": 8,
+            "features": [{
+                "title": "Another coordinates format supported",
+                "description": "Per demand - we added support for the Degree, Decimal Minutes format: DD°MM.mmm' DD°MM.mmm'"
+            }]
         }
     ]
 }
