@@ -24,11 +24,11 @@
     "compression": "^1.7.3",
     "express": "^4.16.4",
     "moment": "^2.22.2",
-    "mongoose": "^5.3.9",
+    "mongoose": "^5.3.10",
     "next": "^7.0.2",
-    "parse-coords": "^1.0.0",
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
+    "parse-coords": "^1.1.0",
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1",
     "react-ga": "^2.5.3",
     "react-google-maps": "^9.4.5",
     "react-new-features-modal": "^3.1.4",
@@ -36,7 +36,7 @@
     "universal-analytics": "^0.4.20"
   },
   "devDependencies": {
-    "@babel/runtime": "^7.1.2",
+    "@babel/runtime": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0"
   }
