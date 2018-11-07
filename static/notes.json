@@ -37,6 +37,12 @@
                 "title": "Complete redesign",
                 "description": "We've completely redesing this app. Let us know what you think!"
             }]
+        }, {
+            "version": 7,
+            "features": [{
+                "title": "Add to home screen",
+                "description": "You can now add sendpoints to your smart phone home screen and (we hope!) it looks pretty good!"
+            }]
         }
     ]
 }
