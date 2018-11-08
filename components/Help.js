@@ -53,6 +53,7 @@ class Help extends React.Component {
               <li><strong>UTM:</strong> 31T 430959.5858286716 4583866.770942634</li>
               <li><strong>DD:</strong> 38.8897,-77.008</li>
               <li><strong>DMS:</strong> 38°53'22.92"N 77°0'28.8"W</li>
+              <li><strong>DM:</strong> 38°53.38200', -077°00.48000'</li>
             </ul>
           </div>
         </Modal>
