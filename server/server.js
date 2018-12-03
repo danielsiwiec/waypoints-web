@@ -25,7 +25,7 @@ app.prepare()
   server.post('/locations', (req, res) => {
     let location = convertLongToLng(req)
     console.log(`Saving record ${JSON.stringify(req.body)}`)
-    ua(googleAnalyticsId).event('location', 'save').send()
+    sendToAnalytics('save', req.query.source)
     let record = new Location(location)
     record.save(err => {
       if (err) {
@@ -43,7 +43,7 @@ app.prepare()
     let hash = req.params.hash
     console.log(`Looking record up by ${hash}`)
     if (hash !== demoHash) {
-      ua(googleAnalyticsId).event('location', 'get').send()
+      sendToAnalytics('get', req.query.source)
     }
     Location.findOne({
       '_id': req.params.hash
@@ -66,6 +66,12 @@ app.prepare()
     console.log(`> Ready on http://localhost:${port}`)
   })
 })
+
+const sendToAnalytics = (event, source) => {
+  if (source !== 'newrelic') {
+    ua(googleAnalyticsId).event('location', event).send()
+  }
+}
 
 const convertLongToLng = req => {
   let body = req.body
