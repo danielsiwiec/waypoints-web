@@ -1,9 +1,10 @@
 import mongoose, { Schema } from 'mongoose'
+import { db } from './props.json'
 
 module.exports = {
   connect: async () => {
     console.log('attempting to connect')
-    await mongoose.connect('mongodb://waypoints:waypoints@ds021671.mlab.com:21671/heroku_27wrdm9m')
+    await mongoose.connect(db)
     console.log('connected to db')
 
     return mongoose.model('locations', new Schema({
