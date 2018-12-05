@@ -1,16 +1,15 @@
-import React, {Component} from 'react'
-import {Input, Grid} from '@material-ui/core'
+import React from 'react'
+import { Input, Grid } from '@material-ui/core'
 import coordinates from 'parse-coords'
 
 import Help from './Help'
 
-const Search = ({onSetPlace}) => {
+const Search = ({ onSetPlace }) => {
   return (
     <Grid container >
-      <Grid item xs={1}>
-      </Grid>
+      <Grid item xs={1} />
       <Grid item xs={10}>
-        <Input fullWidth={true} inputRef={attachAutocomplete(onSetPlace)} autoFocus={true} placeholder="Freddie's Sandwiches" />
+        <Input fullWidth inputRef={attachAutocomplete(onSetPlace)} autoFocus placeholder="Freddie's Sandwiches" />
       </Grid>
       <Grid item xs={1}>
         <Help />
@@ -19,8 +18,7 @@ const Search = ({onSetPlace}) => {
   )
 }
 
-function attachAutocomplete(onSetPlace) {
-
+function attachAutocomplete (onSetPlace) {
   return element => {
     let autocomplete = new google.maps.places.Autocomplete(element)
     autocomplete.addListener('place_changed', () => {
@@ -30,7 +28,7 @@ function attachAutocomplete(onSetPlace) {
   }
 }
 
-function tryCoordinates(input) {
+function tryCoordinates (input) {
   return {
     name: input,
     geo: coordinates(input)
@@ -41,7 +39,7 @@ const normalizeGooglePlace = googlePlace => ({
   name: googlePlace.name,
   geo: {
     lat: googlePlace.geometry.location.lat(),
-    lng: googlePlace.geometry.location.lng(),
+    lng: googlePlace.geometry.location.lng()
   }
 })
 

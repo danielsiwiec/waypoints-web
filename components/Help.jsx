@@ -1,13 +1,13 @@
 import React from 'react'
-import {Grid, Modal, Button, IconButton} from '@material-ui/core'
+import { Modal, IconButton } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import HelpIcon from '@material-ui/icons/Help'
 
-function getModalStyle() {
+function getModalStyle () {
   return {
     top: '50%',
     left: '50%',
-    transform: 'translate(-50%, -50%)',
+    transform: 'translate(-50%, -50%)'
   }
 }
 
@@ -17,8 +17,8 @@ const styles = theme => ({
     width: theme.spacing.unit * 50,
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
-    padding: theme.spacing.unit * 4,
-  },
+    padding: theme.spacing.unit * 4
+  }
 })
 
 class Help extends React.Component {
@@ -34,7 +34,7 @@ class Help extends React.Component {
     this.setState({ open: false })
   }
 
-  render() {
+  render () {
     const { classes } = this.props
     return (
       <span>
@@ -42,8 +42,8 @@ class Help extends React.Component {
           <HelpIcon />
         </IconButton>
         <Modal
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
+          aria-labelledby='simple-modal-title'
+          aria-describedby='simple-modal-description'
           open={this.state.open}
           onClose={this.handleClose}
         >

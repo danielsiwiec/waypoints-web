@@ -15,57 +15,57 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 
 app.prepare()
-.then(() => {
-  const server = express()
-  server.use(bodyParser.json())
-  server.use(compression())
+  .then(() => {
+    const server = express()
+    server.use(bodyParser.json())
+    server.use(compression())
 
-  connectToMongo()
+    connectToMongo()
 
-  server.post('/locations', (req, res) => {
-    let location = convertLongToLng(req)
-    console.log(`Saving record ${JSON.stringify(req.body)}`)
-    sendToAnalytics('save', req.query.source)
-    let record = new Location(location)
-    record.save(err => {
-      if (err) {
-        console.log(`Error when saving ${record._id}: ${err}`)
-      } else {
-        console.log(`Record ${record._id} saved.`)
-        res.json({
-          hash: record._id
-        })
+    server.post('/locations', (req, res) => {
+      let location = convertLongToLng(req)
+      console.log(`Saving record ${JSON.stringify(req.body)}`)
+      sendToAnalytics('save', req.query.source)
+      let record = new Location(location)
+      record.save(err => {
+        if (err) {
+          console.log(`Error when saving ${record._id}: ${err}`)
+        } else {
+          console.log(`Record ${record._id} saved.`)
+          res.json({
+            hash: record._id
+          })
+        }
+      })
+    })
+
+    server.get('/locations/:hash', (req, res) => {
+      let hash = req.params.hash
+      console.log(`Looking record up by ${hash}`)
+      if (hash !== demoHash) {
+        sendToAnalytics('get', req.query.source)
       }
+      Location.findOne({
+        '_id': req.params.hash
+      }, (err, location) => {
+        if (err) {
+          console.log(`Error when retrieving ${hash}: ${err}`)
+        } else {
+          console.log(`${hash} found.`)
+          res.json(location)
+        }
+      })
+    })
+
+    server.get('*', (req, res) => {
+      return handle(req, res)
+    })
+
+    server.listen(port, (err) => {
+      if (err) throw err
+      console.log(`> Ready on http://localhost:${port}`)
     })
   })
-  
-  server.get('/locations/:hash', (req, res) => {
-    let hash = req.params.hash
-    console.log(`Looking record up by ${hash}`)
-    if (hash !== demoHash) {
-      sendToAnalytics('get', req.query.source)
-    }
-    Location.findOne({
-      '_id': req.params.hash
-    }, (err, location) => {
-      if (err) {
-        console.log(`Error when retrieving ${hash}: ${err}`)
-      } else {
-        console.log(`${hash} found.`)
-        res.json(location)
-      }
-    })
-  })
-
-  server.get('*', (req, res) => {
-    return handle(req, res)
-  })
-
-  server.listen(port, (err) => {
-    if (err) throw err
-    console.log(`> Ready on http://localhost:${port}`)
-  })
-})
 
 const sendToAnalytics = (event, source) => {
   if (source !== 'newrelic') {
@@ -105,16 +105,12 @@ let connectToMongo = () => {
       createdAt: {
         type: Date,
         default: Date.now
-      },
+      }
     })
   })
 }
 
 let randomId = () => {
   let random = Math.floor(Math.random() * 10000)
-  return String("0000" + random).slice(-4)
+  return String('0000' + random).slice(-4)
 }
-
-
-
-

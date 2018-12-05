@@ -1,7 +1,7 @@
 import Map from './Map'
 import SendButton from './SendButton'
 import BackButton from './BackButton'
-import {Input, Grid} from '@material-ui/core'
+import { Input, Grid } from '@material-ui/core'
 
 export default (props) => (
   <Grid container justify='center'>
@@ -13,7 +13,7 @@ export default (props) => (
     </Grid>
     <Grid item>
       <SendButton onClick={props.onSend} />
-      <BackButton onClick={props.onBack}/>
+      <BackButton onClick={props.onBack} />
     </Grid>
   </Grid>
 )
