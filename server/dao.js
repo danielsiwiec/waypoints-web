@@ -4,7 +4,7 @@ import { db } from './props.json'
 module.exports = {
   connect: async () => {
     console.log('attempting to connect')
-    await mongoose.connect(db)
+    await mongoose.connect(db, { useNewUrlParser: true })
     console.log('connected to db')
 
     return mongoose.model('locations', new Schema({
