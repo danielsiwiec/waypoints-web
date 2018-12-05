@@ -10,7 +10,6 @@ import get from './api/get'
 const port = process.env.PORT || 3000
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
-const handle = app.getRequestHandler()
 
 ;(async () => {
   app.prepare()
@@ -24,9 +23,7 @@ const handle = app.getRequestHandler()
       server.post('/locations', post(Location))
       server.get('/locations/:hash', get(Location))
 
-      server.get('*', (req, res) => {
-        return handle(req, res)
-      })
+      server.get('*', app.getRequestHandler())
 
       server.listen(port, (err) => {
         if (err) throw err
