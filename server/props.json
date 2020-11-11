@@ -1,4 +1,4 @@
 {
-  "db": "mongodb://waypoints:waypoints@ds021671.mlab.com:21671/heroku_27wrdm9m",
+  "db": "mongodb+srv://waypoints:waypoints@cluster0.1a7w0.mongodb.net/points?retryWrites=true&w=majority",
   "analytics": "UA-77110226-1"
 }
