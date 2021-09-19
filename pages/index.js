@@ -16,6 +16,7 @@ export default () => (
       <meta name='apple-mobile-web-app-status-bar-style' content='default' />
       <meta name='apple-mobile-web-app-capable' content='yes' />
       <meta name='mobile-web-app-capable' content='yes' />
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1690801377757381" crossorigin="anonymous"></script>
     </Head>
     <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDeyqJ4Zgbp6uoKDeE7k7b9roaMdq-HQco&libraries=geometry,places' />
     <NewFeatures notes={notes} limit={2} />
