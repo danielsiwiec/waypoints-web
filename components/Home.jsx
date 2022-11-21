@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid } from '@mui/material'
+import { Grid } from '@material-ui/core'
 import ReactGA from 'react-ga'
 
 import Search from './Search'
@@ -27,8 +27,8 @@ export default class Home extends Component {
   render () {
     return (
       <Grid container
-        alignContent='center'
-        justifyContent='center'
+        alignItems='center'
+        justify='center'
         style={{ height: '100vh' }}
       >
         <Grid item xs={10} md={6}>

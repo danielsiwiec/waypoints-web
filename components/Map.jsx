@@ -1,30 +1,25 @@
 import React from 'react'
-import { GoogleMap, Marker } from '@react-google-maps/api';
+import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 
-const Map = ({ place, onDragEnd }) => {
-
-  const containerStyle = {
-    height: '400px',
-    alignContent: 'center'
-  }
-
+const Map = withGoogleMap(({ place, onDragEnd }) => {
   const defaultProps = {
     zoom: 13
   }
   return (
     <GoogleMap
-      mapContainerStyle={containerStyle}
-      zoom={defaultProps.zoom}
-      center={place.geo}
+      defaultZoom={defaultProps.zoom}
+      defaultCenter={place.geo}
     >
       <Marker position={place.geo} draggable onDragEnd={onDragEnd} />
     </GoogleMap>
   )
-}
+})
 
 export default ({ place, onDragEnd }) => (
   <Map
     place={place}
     onDragEnd={onDragEnd}
+    containerElement={<div style={{ height: '60vh', width: '100%' }} />}
+    mapElement={<div style={{ height: `100%` }} />}
   />
 )
