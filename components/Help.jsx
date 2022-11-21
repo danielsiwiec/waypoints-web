@@ -1,25 +1,7 @@
 import React from 'react'
-import { Modal, IconButton } from '@material-ui/core'
-import { withStyles } from '@material-ui/core/styles'
-import HelpIcon from '@material-ui/icons/Help'
-
-function getModalStyle () {
-  return {
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)'
-  }
-}
-
-const styles = theme => ({
-  paper: {
-    position: 'absolute',
-    width: theme.spacing.unit * 50,
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing.unit * 4
-  }
-})
+import { Modal, IconButton } from '@mui/material'
+import { styled } from '@mui/material/styles'
+import HelpIcon from '@mui/icons-material/Help'
 
 class Help extends React.Component {
   state = {
@@ -35,19 +17,31 @@ class Help extends React.Component {
   }
 
   render () {
-    const { classes } = this.props
+
+    const HelpDiv = styled('div')(
+      ({ theme }) => `
+      background-color: ${theme.palette.background.paper};
+      position: absolute;
+      width: ${theme.spacing(50)};
+      padding: ${theme.spacing(4)};
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    `,
+    )
+
     return (
       <span>
         <IconButton onClick={this.handleOpen}>
-          <HelpIcon />
+          <HelpIcon/>
         </IconButton>
         <Modal
-          aria-labelledby='simple-modal-title'
-          aria-describedby='simple-modal-description'
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
           open={this.state.open}
           onClose={this.handleClose}
         >
-          <div style={getModalStyle()} className={classes.paper}>
+          <HelpDiv>
           Enter name of a location or coordinates in one of these formats:
             <ul>
               <li><strong>UTM:</strong> 31T 430959.5858286716 4583866.770942634</li>
@@ -55,11 +49,11 @@ class Help extends React.Component {
               <li><strong>DMS:</strong> 38°53'22.92"N 77°0'28.8"W</li>
               <li><strong>DM:</strong> 38°53.38200', -077°00.48000'</li>
             </ul>
-          </div>
+          </HelpDiv>
         </Modal>
       </span>
     )
   }
 }
 
-export default withStyles(styles)(Help)
+export default Help

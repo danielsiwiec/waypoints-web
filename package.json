@@ -9,39 +9,40 @@
     "start": "NODE_ENV=production node index.js"
   },
   "engines": {
-    "node": "10.0.0",
-    "npm": "6.0.0"
+    "node": "18.x"
   },
   "keywords": [],
   "author": "Dan Siwiec <daniel.siwiec@gmail.com> (http://danielsiwiec.github.io)",
   "license": "ISC",
   "dependencies": {
-    "@material-ui/core": "^4.7.2",
-    "@material-ui/icons": "^4.5.1",
-    "body-parser": "^1.19.0",
-    "classnames": "^2.2.6",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.10.14",
+    "@mui/material": "^5.10.14",
+    "@react-google-maps/api": "^2.17.0",
+    "body-parser": "^1.20.1",
+    "classnames": "^2.3.2",
     "compression": "^1.7.4",
-    "express": "^4.17.1",
-    "moment": "^2.24.0",
-    "mongoose": "^5.8.1",
-    "newrelic": "^6.2.0",
-    "next": "^9.1.5",
+    "express": "^4.18.2",
+    "moment": "^2.29.4",
+    "mongoose": "^6.7.2",
+    "newrelic": "^9.7.0",
+    "next": "^13.0.4",
     "parse-coords": "^1.1.3",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-ga": "^2.7.0",
-    "react-google-maps": "^9.4.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-ga": "^3.3.1",
     "react-new-features-modal": "^3.1.4",
-    "shortid": "^2.2.15",
-    "universal-analytics": "^0.4.20"
+    "shortid": "^2.2.16",
+    "universal-analytics": "^0.5.3"
   },
   "devDependencies": {
-    "@babel/runtime": "^7.7.6",
+    "@babel/runtime": "^7.20.1",
     "babel-eslint": "^10.0.3",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
-    "snazzy": "^8.0.0",
-    "standard": "^14.3.1"
+    "snazzy": "^9.0.0",
+    "standard": "^17.0.0"
   },
   "standard": {
     "parser": "babel-eslint",

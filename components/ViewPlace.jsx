@@ -1,10 +1,10 @@
 import Map from './Map'
 import SendButton from './SendButton'
 import BackButton from './BackButton'
-import { Input, Grid } from '@material-ui/core'
+import { Input, Grid } from '@mui/material'
 
 export default (props) => (
-  <Grid container justify='center'>
+  <Grid container justifyContent='center'>
     <Grid item xs={12}>
       <Map place={props.place} onDragEnd={props.onDragEnd} />
     </Grid>
