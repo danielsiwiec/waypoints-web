@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Grid } from '@material-ui/core'
+import { Input, Grid } from '@mui/material'
 import coordinates from 'parse-coords'
 
 import Help from './Help'
