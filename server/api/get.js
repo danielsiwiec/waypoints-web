@@ -13,8 +13,13 @@ module.exports = Location => {
       let location = await Location.findOne({
         '_id': req.params.hash
       })
-      console.log(`${hash} found.`)
-      res.json(location)
+      if(location) {
+        console.log(`${hash} found.`)
+        res.json(location)
+      } else {
+        console.log(`${hash} NOT found.`)
+        res.sendStatus(404)
+      }
     } catch (err) {
       console.log(`Error when retrieving ${hash}: ${err}`)
     }
