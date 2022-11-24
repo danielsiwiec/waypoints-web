@@ -1,10 +1,10 @@
-import mongoose, { Schema } from 'mongoose'
-import { db } from './props.json'
+import mongoose, {Schema} from 'mongoose'
+import {db} from './props.json'
 
 module.exports = {
   connect: async () => {
     console.log('attempting to connect')
-    await mongoose.connect(db, { useNewUrlParser: true })
+    await mongoose.connect(db)
     console.log('connected to db')
 
     return mongoose.model('locations', new Schema({
@@ -16,12 +16,8 @@ module.exports = {
       _id: {
         type: String,
         default: randomId
-      },
-      createdAt: {
-        type: Date,
-        default: Date.now
       }
-    }))
+    }, {timestamps: true}))
   }
 }
 

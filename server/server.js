@@ -9,7 +9,7 @@ import get from './api/get'
 
 const port = process.env.PORT || 3000
 const dev = process.env.NODE_ENV !== 'production'
-const app = next({ dev })
+const app = next({dev})
 
 ;(async () => {
   app.prepare()
@@ -22,12 +22,21 @@ const app = next({ dev })
 
       server.post('/locations', post(Location))
       server.get('/locations/:hash', get(Location))
-
       server.get('*', app.getRequestHandler())
 
-      server.listen(port, (err) => {
+      server.listen(port, async (err) => {
         if (err) throw err
         console.log(`> Ready on http://localhost:${port}`)
+        console.log('Registering diagnostic location 0000')
+        await Location.findOneAndUpdate({_id: '0000'}, {
+            name: "Freddie's Sandwiches",
+            geo: {
+              lat: 37.8051883,
+              long: -122.4103007
+            }
+          },
+          {upsert: true}
+        )
       })
     })
 })()
