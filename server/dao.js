@@ -1,6 +1,8 @@
 import mongoose, {Schema} from 'mongoose'
 import {db} from './props.json'
 
+const hoursToExpire = 2
+
 module.exports = {
   connect: async () => {
     console.log('attempting to connect')
@@ -16,6 +18,11 @@ module.exports = {
       _id: {
         type: String,
         default: randomId
+      },
+      expireAt: {
+        type: Date,
+        expires: 60 * 60 * 5,
+        default: () => new Date(Date.now() + 1000 * 60 * 60 * hoursToExpire)
       }
     }, {timestamps: true}))
   }

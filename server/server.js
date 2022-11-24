@@ -33,7 +33,8 @@ const app = next({dev})
             geo: {
               lat: 37.8051883,
               long: -122.4103007
-            }
+            },
+            expireAt: Date.UTC(2080, 1, 1)
           },
           {upsert: true}
         )
