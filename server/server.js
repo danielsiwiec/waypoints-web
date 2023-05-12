@@ -2,6 +2,7 @@ import next from 'next'
 import express from 'express'
 import compression from 'compression'
 import bodyParser from 'body-parser'
+import cors from 'cors'
 
 import dao from './dao'
 import post from './api/post'
@@ -14,14 +15,26 @@ const app = next({dev})
 ;(async () => {
   app.prepare()
     .then(async () => {
+      const whitelist = ['https://www.sendpoints.us', 'https://sendpoints.us', 'http://localhost:3000']
+      var corsOptions = {
+        origin: function (origin, callback) {
+          console.log(origin)
+          if (whitelist.indexOf(origin) !== -1) {
+            callback(null, true)
+          } else {
+            callback(new Error(`Origin ${origin} not allowed by CORS`))
+          }
+        }
+      }
+      
       const server = express()
       server.use(bodyParser.json())
       server.use(compression())
 
       const Location = await dao.connect()
 
-      server.post('/locations', post(Location))
-      server.get('/locations/:hash', get(Location))
+      server.post('/locations', cors(corsOptions), post(Location))
+      server.get('/locations/:hash', cors(corsOptions), get(Location))
       server.get('*', app.getRequestHandler())
 
       server.listen(port, async (err) => {

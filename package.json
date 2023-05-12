@@ -24,6 +24,7 @@
     "body-parser": "^1.20.1",
     "classnames": "^2.3.2",
     "compression": "^1.7.4",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "moment": "^2.29.4",
     "mongoose": "^6.7.2",
