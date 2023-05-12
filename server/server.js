@@ -16,12 +16,12 @@ const app = next({dev})
   app.prepare()
     .then(async () => {
       const whitelist = ['https://www.sendpoints.us', 'https://sendpoints.us', 'http://localhost:3000']
-      var corsOptions = {
+      const corsOptions = {
         origin: function (origin, callback) {
-          console.log(origin)
           if (whitelist.indexOf(origin) !== -1) {
             callback(null, true)
           } else {
+            console.log(`Origin ${origin} not allowed by CORS`)
             callback(new Error(`Origin ${origin} not allowed by CORS`))
           }
         }
@@ -30,6 +30,8 @@ const app = next({dev})
       const server = express()
       server.use(bodyParser.json())
       server.use(compression())
+
+      server.options('*', cors(corsOptions))
 
       const Location = await dao.connect()
 
